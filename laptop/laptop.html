@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Your Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="liberty-navbar">
+        <div class="nav-logo">
+            <img style="height: 150px;" src="../logo-Photoroom.png" alt="Liberty Electronic">
+        </div>
+
+        <div class="nav-toggle" onclick="openMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-menu">
+
+            <li class="close-menu">
+                <span onclick="closeMenu()">✖</span>
+            </li>
+            <li><a href="../index.html">Home</a><span class="underline"></span></li>
+            <li><a href="../index.html#Reviews">Reviews</a><span class="underline"></span></li>
+            <li><a href="../index.html#contact">Contact Us</a><span class="underline"></span></li>
+            <li><a href="../index.html#services">Our Services</a><span class="underline"></span></li>
+            <li class="cart">
+                <a href="#" onclick="openCart()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </li>
+        </ul>
+
+        <div id="cartModal" style="display:none;">
+            <div class="modal-overlay" onclick="closeCart()"></div>
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeCart()">&times;</span>
+                <h2>Your Cart</h2>
+                <div id="cartItems"></div>
+                <p id="emptyCart">Your cart is empty 🛒</p>
+            </div>
+        </div>
+
+
+
+
+    </nav>
+
+    <header class="hero-section">
+        <div class="reveal-box">
+            <h1>Find Your Perfect <span class="gradient-text">laptop</span></h1>
+        </div>
+
+        <br>
+
+        <div class="reveal-box delay-animation">
+            <p>“ Trusted reviews for the newest laptops ⭐💻”</p>
+        </div>
+
+        <div>
+            <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+                Explore Models
+            </button>
+        </div>
+    </header>
+
+    <section class="card-container" id="products">
+
+        <!-- CARD 1 -->
+        <div class="card" data-slides='[
+  {
+    "img":"assets/hp-2.png",
+    "desc":"HP 15 (15.6-inch) laptop aapke daily work aur study ke liye perfect hai. Badi screen aur smooth performance ke saath kaam aur bhi easy ho jata hai."
+  },
+  {
+    "img":"assets/hp-4.png",
+    "desc":"HP 15 15.6\" powerful performance ke saath multitasking ko fast aur smooth banata hai. Office work, online classes aur entertainment ke liye ideal choice."
+  },
+  {
+    "img":"assets/hp-1.png",
+    "desc":"HP 15 (15.6-inch) simple design aur reliable performance ke saath aata hai. Big display aapko better viewing aur comfort deta hai."
+  }
+]'>
+
+            <div class="img-area"><img src="assets/hp-2.png" alt="hp 15"></div>
+            <div class="item-name">HP 15</div>
+            <p class="item-desc">
+                HP 15‑fd0150WM: 15.6″ FHD, Core i5, 8 GB RAM, 512 GB SSD.
+            </p>
+
+            <div class="price">PKR 145,000 – PKR 152,000</div>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="rating-num">5</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card" data-slides='[
+  {
+    "img":"assets/hp-2-1.png",
+    "desc":"HP 15 i5 (15.6-inch) – Perfect for work, study, and daily productivity. Big display and smooth performance make every task easy."
+  },
+  {
+    "img":"assets/hp-2-3.png",
+    "desc":"Ready for anything – Handles multitasking, online classes, and entertainment effortlessly. Reliable and fast for everyday use."
+  },
+  {
+    "img":"assets/hp-2-4.png",
+    "desc":"Smooth performance with HP 15 i5 – Designed for efficiency, comfort, and seamless computing. Ideal for students and professionals alike."
+  }
+]'>
+ <div class="img-area"><img src="assets/hp-3-2.png" alt="hp victus 15"></div>
+                <div class="item-name">HP 15 Core i5 </div>
+                <p class="item-desc">
+                    Intel Core i7-13620H (up to 4.9 GHz) 16 GB RAM + 512 GB SSD
+                </p>
+
+                <div class="price">PKR 324,900 – PKR 349,900</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="rating-num">5</span>
+                </div>
+
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+
+
+            <!-- CARD 3 -->
+            <div class="card" data-slides='[
+  {
+    "img":"assets/hp-3-1.png",
+    "desc":"HP Vistus 15 (15.6-inch) – Power meets precision for work, study, and everyday computing. Smooth and reliable performance every time."
+  },
+  {
+    "img":"assets/hp-3-3.png",
+    "desc":"Play, create, and dominate – HP Vistus 15 handles multitasking, entertainment, and productivity effortlessly."
+  },
+  {
+    "img":"assets/hp-3-4.png",
+    "desc":"Performance loaded – Enjoy faster graphics, seamless multitasking, and a laptop built for both work and play."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/hp-3-2.png" alt="hp victus 15"></div>
+                <div class="item-name">HP VICTUS 15</div>
+                <p class="item-desc">
+                    Intel Core i7-13620H (up to 4.9 GHz) 16 GB RAM + 512 GB SSD
+                </p>
+
+                <div class="price">PKR 324,900 – PKR 349,900</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="rating-num">5</span>
+                </div>
+
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="card" data-slides='[
+  {
+    "img":"assets/hp-4-3.png",
+    "desc":"HP OMNIbook X FLIP 16 – Performance meets versatility with a powerful, flexible design. Perfect for work, study, and entertainment."
+  },
+  {
+    "img":"assets/hp-4-2.png",
+    "desc":"Big screen, bigger ideas – 16-inch display lets you create, learn, and collaborate with ease anywhere."
+  },
+  {
+    "img":"assets/hp-4-4.png",
+    "desc":"Create, play, anywhere – HP OMNIbook X FLIP 16 adapts to your lifestyle with 360° flip design and smooth performance."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/hp-4-1.png" alt="hp omnibook"></div>
+                <div class="item-name">HP OMNIbook X FLIP 16</div>
+                <p class="item-desc">
+                    A 16″ 2-in-1 convertible laptop powered by an Intel Core Ultra 7 processor, 16 GB
+                </p>
+
+                <div class="price">PKR 270,000 – PKR 300,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty"></i>
+                    <span class="rating-num">4</span>
+                </div>
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 5 -->
+          <div class="card" data-slides='[
+  {
+    "img":"assets/samung-2.png",
+    "desc":"Samsung Galaxy Book 4 – Thin, fast, and smart. Perfect for work, study, and everyday productivity on the go."
+  },
+  {
+    "img":"assets/samung-3.png",
+    "desc":"Big power in a small body – Galaxy Book 4 delivers high performance in a sleek, portable design."
+  },
+  {
+    "img":"assets/samung-4.png",
+    "desc":"Fast pace? No problem – Handle multitasking, streaming, and work effortlessly with Galaxy Book 4."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/samung-1.png" alt="samsung galaxy book 4"></div>
+                <div class="item-name">SAMSUNG GALAXY BOOK 4</div>
+                <p class="item-desc">
+                    15.6″ FHD, Intel Core, 16 GB RAM, 512 GB SSD, Windows 11
+                </p>
+
+                <div class="price">PKR 225,000 – PKR 260,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty"></i> <!-- empty star -->
+                    <span class="rating-num">4</span>
+                </div>
+
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="card" data-slides='[
+  {
+    "img":"assets/samung-2.png",
+    "desc":"Samsung Galaxy Book 4 – Thin, fast, and smart. Perfect for work, study, and everyday productivity on the go."
+  },
+  {
+    "img":"assets/samung-3.png",
+    "desc":"Big power in a small body – Galaxy Book 4 delivers high performance in a sleek, portable design."
+  },
+  {
+    "img":"assets/samung-4.png",
+    "desc":"Fast pace? No problem – Handle multitasking, streaming, and work effortlessly with Galaxy Book 4."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/samsung-2-4.png" alt="galaxy book 4"></div>
+                <div class="item-name">SAMSUNG GALAXY BOOK 4</div>
+                <p class="item-desc">
+                    Intel Core Ultra 5, 8 GB/16 GB RAM and 512 GB SSD.
+                </p>
+
+                <div class="price">PKR 235,000 – PKR 415,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty"></i>
+                    <i class="fas fa-star empty"></i>
+                    <span class="rating-num">3</span>
+                </div>
+
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 7 -->
+           <div class="card" data-slides='[
+  {
+    "img":"assets/samsung-3-2.png",
+    "desc":"Samsung Galaxy Book 4 Edge – Ultra thin and ultra fast, designed for work, study, and on-the-go productivity."
+  },
+  {
+    "img":"assets/samsung-3-1.png",
+    "desc":"Creative freedom – Galaxy Book 4 Edge lets you design, edit, and create smoothly wherever you are."
+  },
+  {
+    "img":"assets/samsung-3-3.png",
+    "desc":"Fast lane laptop – High-speed performance ensures effortless multitasking, streaming, and daily computing."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/samsung-3-4.png" alt="samsung galaxy book 4 edge"></div>
+                <div class="item-name">SAMSUNG GALAXY BOOK 4 EDGE</div>
+                <p class="item-desc">
+                    4″ AMOLED, Snapdragon X Elite, 16 GB RAM, 512 GB SSD.
+                </p>
+
+                <div class="price">PKR 380,000 – PKR 420,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty"></i>
+                    <i class="fas fa-star empty"></i>
+                    <span class="rating-num">3</span>
+                </div>
+
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 8 -->
+            <div class="card" data-slides='[
+  {
+    "img":"assets/samsung-4-2.png",
+    "desc":"Samsung Galaxy Book 5 Pro – Premium 2-in-1 performance, unlocked for work, study, and entertainment."
+  },
+  {
+    "img":"assets/samsung-4-3.png",
+    "desc":"Your creativity, convertible – Flip, draw, and create seamlessly with the versatile Galaxy Book 5 Pro."
+  },
+  {
+    "img":"assets/samsung-4-1.png",
+    "desc":"Work, play, create anywhere – High performance and portability let you handle tasks and entertainment on the go."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/samsung-4-4.png" alt="samsung galaxy book 5 pro"></div>
+                <div class="item-name">SAMSUNG GALAXY BOOK 5 PRO</div>
+                <p class="item-desc">
+                    AMOLED touchscreen, Intel Core Ultra 7 processor, 16 GB RAM
+                </p>
+
+                <div class="price">PKR 499,000 – PKR 675,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty"></i>
+                    <span class="rating-num">4</span>
+                </div>
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 9 -->
+            <div class="card" data-slides='[
+  {
+    "img":"assets/vizio-2.png",
+    "desc":"VIZIO CT15‑A1 – Big screen for everyday use, perfect for work, study, and entertainment."
+  },
+  {
+    "img":"assets/vizio-3.png",
+    "desc":"Reliable laptop for a simple life – Handle browsing, streaming, and daily tasks effortlessly."
+  },
+  {
+    "img":"assets/vizio-4.png",
+    "desc":"Work, watch, browse – VIZIO CT15‑A1 combines performance and convenience in one sleek package."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/vizio-1.png" alt="vizio ct15"></div>
+                <div class="item-name">VIZIO CT15‑A1</div>
+                <p class="item-desc">
+                    15.6″ Full‑HD laptop with Intel Core i5‑3317U, 4 GB RAM, 128 GB SSD
+                </p>
+
+                <div class="price">PKR 10,000 – PKR 20,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="rating-num">5</span>
+                </div>
+
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 10 -->
+           <div class="card" data-slides='[
+  {
+    "img":"assets/vizio-2-2.png",
+    "desc":"VIZIO FULL-HD – Speed you can feel with smooth performance for work, study, and entertainment."
+  },
+  {
+    "img":"assets/vizio-2-3.png",
+    "desc":"Learn faster, do more – Full-HD display and reliable performance help you stay productive and creative."
+  },
+  {
+    "img":"assets/vizio-2-4.png",
+    "desc":"Built for what’s next – VIZIO FULL-HD combines performance, clarity, and convenience in one sleek laptop."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/vizio-2-1.png" alt="vizio full-hd"></div>
+                <div class="item-name">VIZIO FULL-HD</div>
+                <p class="item-desc">
+                    Intel Core i5, 4GB RAM, 128GB SSD older thin & light notebook model laptop
+                </p>
+
+                <div class="price">PKR 15,000 – PKR 40,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty"></i>
+                    <i class="fas fa-star empty"></i>
+                    <span class="rating-num">3</span>
+                </div>
+
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 11 -->
+            <div class="card" data-slides='[
+  {
+    "img":"assets/vizio-3-2.png",
+    "desc":"VIZIO CT-14 Ultra – Portable precision everywhere. Perfect for work, study, and on-the-go productivity."
+  },
+  {
+    "img":"assets/vizio-3-3.png",
+    "desc":"Compact and smart – Keep your essentials handy while enjoying smooth, reliable performance."
+  },
+  {
+    "img":"assets/vizio-3-4.png",
+    "desc":"Work anywhere, seamlessly – VIZIO CT-14 Ultra adapts to your lifestyle with portability and power."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/vizio-3-1.png" alt="vizio ct14"></div>
+                <div class="item-name">VIZIO CT14" ULTRA</div>
+                <p class="item-desc">
+                    Intel Ivy Bridge CPUs (Core i3/i5/i7), 4 GB RAM, SSD storage up to 256 GB
+                </p>
+
+                <div class="price">PKR 10,000 – PKR 30,000 </div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty"></i>
+                    <span class="rating-num">4</span>
+                </div>
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 12 -->
+           <div class="card" data-slides='[
+  {
+    "img":"assets/vizio-4-2.png",
+    "desc":"VIZIO CN15-A5 – Style that works for you, combining sleek design with everyday performance."
+  },
+  {
+    "img":"assets/vizio-4-3.png",
+    "desc":"Think forward – Handle work, study, and entertainment effortlessly with a responsive and reliable laptop."
+  },
+  {
+    "img":"assets/vizio-4-4.png",
+    "desc":"Innovation on the move – VIZIO CN15-A5 adapts to your lifestyle with portability, power, and smart features."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/vizio-4-1.png" alt="vizio cn15"></div>
+                <div class="item-name">VIZIO CN15-A5 </div>
+                <p class="item-desc">
+                    Intel Core i7, 8GB RAM, HDD + SSD cache higher‑end historic model, would trade
+                </p>
+
+                <div class="price">PKR 20,000 – PKR 50,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="rating-num">5</span>
+                </div>
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 13 -->
+           <div class="card" data-slides='[
+  {
+    "img":"assets/apple-2.png",
+    "desc":"MacBook Air 15 – Big screen, light touch. Enjoy a spacious display with ultra-portable design."
+  },
+  {
+    "img":"assets/apple-3.png",
+    "desc":"Think big, carry light – Power and portability combine for work, study, and creative tasks anywhere."
+  },
+  {
+    "img":"assets/apple-1.png",
+    "desc":"Power that travels with you – MacBook Air 15 delivers smooth performance and long-lasting battery on the go."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/apple-4.png" alt="macbook 15"></div>
+                <div class="item-name">MACBOOK AIR 15</div>
+                <p class="item-desc">
+                    15″ MacBook Air M4 — Big screen, light weight, endless possibilities.”
+                </p>
+
+                <div class="price">PKR 340,000 – PKR 370,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span class="rating-num">5</span>
+                </div>
+
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 14 -->
+           <div class="card" data-slides='[
+  {
+    "img":"assets/apple-2-2.png",
+    "desc":"MacBook Air 13 – Quick storage access for faster work and seamless file management."
+  },
+  {
+    "img":"assets/apple-2-1.png",
+    "desc":"Sharp, bright visuals – Enjoy a crisp display perfect for work, study, and entertainment."
+  },
+  {
+    "img":"assets/apple-2-4.png",
+    "desc":"Smooth multitasking – Handle multiple apps effortlessly with powerful performance and efficiency."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/apple-2-3.png" alt="macbook 13"></div>
+                <div class="item-name">MACBOOK AIR 13</div>
+                <p class="item-desc">
+                    Apple M4 chip, 16GB RAM, 512GB SSD, 13.6″ Liquid Retina display,
+                </p>
+
+                <div class="price">PKR 351,999– PKR 364,999</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty"></i>
+                    <i class="fas fa-star empty"></i>
+                    <span class="rating-num">3</span>
+                </div>
+
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 15 -->
+           <div class="card" data-slides='[
+  {
+    "img":"assets/apple-3-2.png",
+    "desc":"MacBook Pro 14 – Every task demands Pro. Handle demanding work with speed and efficiency."
+  },
+  {
+    "img":"assets/apple-3-3.png",
+    "desc":"Your workflows — accelerated. Power through projects, multitasking, and creative tasks effortlessly."
+  },
+  {
+    "img":"assets/apple-3-4.png",
+    "desc":"Designed for creators, built for power. MacBook Pro 14 delivers unmatched performance and reliability."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/apple-3-1.png" alt="macbook pro 14"></div>
+                <div class="item-name">MACBOOK PRO 14"</div>
+                <p class="item-desc">
+                    The Apple MacBook Pro 14″ M3 Pro (36 GB RAM + 1 TB SSD) is a powerful laptop
+                </p>
+
+                <div class="price">PKR 699,999 – PKR 780,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty"></i>
+                    <span class="rating-num">4</span>
+                </div>
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+            <!-- CARD 16 -->
+           <div class="card" data-slides='[
+  {
+    "img":"assets/apple-4-1.png",
+    "desc":"MacBook Pro 16 – Unleash extreme performance for demanding tasks, professional work, and creative projects."
+  },
+  {
+    "img":"assets/apple-4-2.png",
+    "desc":"Power where it matters – High-speed processing and advanced graphics for seamless productivity."
+  },
+  {
+    "img":"assets/apple-4-3.png",
+    "desc":"Your creative engine – MacBook Pro 16 empowers creators with top-tier performance, large display, and reliability."
+  }
+]'>
+
+                <div class="img-area"><img src="assets/apple-4-4.png" alt="macbook 16 pro"></div>
+                <div class="item-name">MACBOOK PRO 16"</div>
+                <p class="item-desc">
+                    64 GB unified memory, 1 TB SSD, stunning Liquid Retina XDR display
+                </p>
+
+                <div class="price">PKR1,340,000 –PKR1,400,000</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star empty"></i>
+                    <i class="fas fa-star empty"></i>
+                    <span class="rating-num">3</span>
+                </div>
+
+                <button class="view-btn">View Details</button>
+                <div class="compare-check">
+                    <input type="checkbox" class="compare-checkbox">
+                </div>
+            </div>
+
+    </section>
+
+    <!-- Floating Compare Button -->
+    <button id="compareBtn" style="display:none;">Compare</button>
+
+    <!-- Compare Modal -->
+    <div id="compareModal" style="display:none;">
+        <div class="modal-overlay" onclick="closeCompareModal()"></div>
+        <div class="modal-content compare-modal-content">
+            <span class="close-btn" onclick="closeCompareModal()">&times;</span>
+            <h2>Compare Products</h2>
+            <div class="compare-products" id="compareProductsContainer"></div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL ===== -->
+    <div class="product-modal" id="productModal" style="display:none;">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+
+            <div class="modal-body">
+                <div class="modal-left">
+                    <div class="slider-container">
+                        <button class="slide-btn small">❮</button>
+                        <div class="slides">
+                            <img class="active" src="" alt="Product Image 1">
+                            <img src="" alt="Product Image 2">
+                            <img src="" alt="Product Image 3">
+                        </div>
+                        <button class="slide-btn small">❯</button>
+                    </div>
+                </div>
+
+                <div class="modal-right">
+                    <h2 id="modalTitle">Product Title</h2>
+                    <p id="modalDesc">Product description goes here. Make it short and sweet.</p>
+
+                    <div class="modal-actions">
+                        <button class="add-btn">Add to Cart</button>
+                        <button class="compare-btn">Download🔽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            // Navbar hover underline
+            $('.nav-menu li').hover(
+                function () { $(this).find('.underline').stop().animate({ width: '100%' }, 300); },
+                function () { $(this).find('.underline').stop().animate({ width: '0' }, 300); }
+            );
+
+            let currentSlides = []; // store current card slides
+            let currentSlideIndex = 0;
+
+            // OPEN MODAL
+            $(document).on('click', '.view-btn', function () {
+                const card = $(this).closest('.card');
+                const slidesData = JSON.parse(card.attr('data-slides'));
+
+                currentSlides = slidesData;
+                currentSlideIndex = 0;
+
+                // Clear old slides
+                const slidesContainer = $('.slides');
+                slidesContainer.empty();
+
+                // Add slides to modal
+                slidesData.forEach((slide, index) => {
+                    const img = $('<img>').attr('src', slide.img).attr('alt', 'Slide ' + (index + 1));
+                    if (index === 0) img.addClass('active'); // first slide active
+                    slidesContainer.append(img);
+                });
+
+                // Set first slide description
+                $('#modalDesc').text(slidesData[0].desc);
+                $('#modalTitle').text(card.find('.item-name').text());
+
+                // Show modal
+                $('#productModal').css({ display: 'flex', opacity: 0 }).animate({ opacity: 1 }, 200);
+            });
+
+            // CLOSE MODAL
+            $(document).on('click', '.modal-overlay, .close-btn', function () {
+                $('#productModal').animate({ opacity: 0 }, 200, function () { $(this).css('display', 'none'); });
+            });
+
+            // SLIDER BUTTONS
+            $(document).on('click', '.slide-btn', function () {
+                const direction = $(this).text() === '❮' ? -1 : 1;
+                changeSlide(direction);
+            });
+
+            function changeSlide(direction) {
+                const slidesContainer = $('.slides img');
+                slidesContainer.removeClass('active');
+
+                currentSlideIndex += direction;
+
+                if (currentSlideIndex < 0) currentSlideIndex = currentSlides.length - 1;
+                if (currentSlideIndex >= currentSlides.length) currentSlideIndex = 0;
+
+                slidesContainer.eq(currentSlideIndex).addClass('active');
+                $('#modalDesc').text(currentSlides[currentSlideIndex].desc);
+            }
+
+        });
+
+        let cartItems = JSON.parse(localStorage.getItem("cartData")) || [];
+
+        // UPDATE CART COUNT
+        function updateCartCount() {
+            $("#cartCount").text(cartItems.length);
+        }
+        updateCartCount();
+
+        // RENDER CART ITEMS WITHOUT IMAGES
+        function renderCart() {
+            const container = $("#cartItems");
+            container.empty();
+
+            if (cartItems.length === 0) {
+                $("#emptyCart").show();
+                return;
+            }
+
+            $("#emptyCart").hide();
+
+            cartItems.forEach((item, index) => {
+                container.append(`
+            <div class="cart-item" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <div class="cart-info">
+                    <h4>${item.name}</h4>
+                    <p>${item.price}</p>
+                </div>
+                <button class="remove-btn" onclick="removeItem(${index})">✖</button>
+            </div>
+        `);
+            });
+        }
+
+
+
+
+
+        // Show/hide compare button based on selections
+        let compareList = [];
+
+        function updateCompareButton() {
+            if (compareList.length >= 2) {
+                $('#compareBtn').fadeIn();
+            } else {
+                $('#compareBtn').fadeOut();
+            }
+        }
+
+        // Update the compare list on checkbox change
+        $(document).on('change', '.compare-checkbox', function () {
+            const card = $(this).closest('.card');
+            const productName = card.find('.item-name').text();
+
+            if (this.checked) {
+                if (!compareList.includes(productName)) compareList.push(productName);
+                card.addClass('active-for-compare');
+            } else {
+                compareList = compareList.filter(name => name !== productName);
+                card.removeClass('active-for-compare');
+            }
+
+            updateCompareButton();
+        });
+
+        // Open Compare Modal
+        $('#compareBtn').on('click', function () {
+            const container = $('#compareProductsContainer');
+            container.empty();
+
+            compareList.forEach(productName => {
+                const card = $('.card').filter(function () {
+                    return $(this).find('.item-name').text() === productName;
+                }).first();
+
+                const imgSrc = card.find('.img-area img').attr('src');
+                const desc = card.find('.item-desc').text();
+                const price = card.find('.price').text();
+                const rating = card.find('.rating').html(); // stars
+
+                const productHTML = `
+            <div class="compare-product-card">
+                <img src="${imgSrc}" alt="${productName}" style="width:100%; height:auto; border-radius:4px;">
+                <h4>${productName}</h4>
+                <p>${desc}</p>
+                <p><strong>${price}</strong></p>
+                <div class="rating">${rating}</div>
+            </div>
+        `;
+                container.append(productHTML);
+            });
+
+            $('#compareModal').fadeIn();
+        });
+
+        // Close Compare Modal
+        function closeCompareModal() {
+            $('#compareModal').fadeOut();
+        }
+
+
+
+        // REMOVE ITEM
+        function removeItem(index) {
+            cartItems.splice(index, 1);
+            localStorage.setItem("cartData", JSON.stringify(cartItems));
+            updateCartCount();
+            renderCart();
+        }
+
+        // ADD TO CART BUTTON
+        $(document).on("click", ".add-btn", function () {
+            const productName = $("#modalTitle").text();
+            const productDesc = $("#modalDesc").text();
+            const productImg = $(".slides img.active").attr("src");
+
+            const productPrice = $(".card")
+                .filter(function () {
+                    return $(this).find(".item-name").text() === productName;
+                })
+                .find(".price").text();
+
+            if (!productName) {
+                alert("Product not found ❌");
+                return;
+            }
+
+            // Prevent duplicate items
+            if (cartItems.some(item => item.name === productName)) {
+                alert("Already added 🛒");
+                return;
+            }
+
+            cartItems.push({
+                name: productName,
+                desc: productDesc,
+                img: productImg,
+                price: productPrice
+            });
+
+            localStorage.setItem("cartData", JSON.stringify(cartItems));
+            updateCartCount();
+            alert("Item added to cart ✅");
+        });
+
+        // OPEN CART
+        function openCart() {
+            renderCart();
+            $("#cartModal").fadeIn();
+        }
+
+        // CLOSE CART
+        function closeCart() {
+            $("#cartModal").fadeOut();
+        }
+
+
+
+        // Download
+
+
+        // DOWNLOAD BUTTON CLICK
+        $(document).on('click', '.compare-btn', function () {
+
+            // Modal se data uthao
+            const productName = $('#modalTitle').text();
+            const productDesc = $('#modalDesc').text();
+
+            const productPrice = $('.card')
+                .filter(function () {
+                    return $(this).find('.item-name').text() === productName;
+                })
+                .find('.price')
+                .text();
+
+            if (!productName) {
+                alert("No product found ❌");
+                return;
+            }
+
+            // File ka content
+            let fileContent =
+                `Product Name: ${productName}
+
+Price: ${productPrice}
+
+Description:
+${productDesc}
+`;
+
+            // TEXT FILE BANAO
+            const blob = new Blob([fileContent], { type: 'text/plain' });
+
+            // DOWNLOAD LINK
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = productName.replace(/\s+/g, '_') + '.txt';
+
+            // AUTO DOWNLOAD
+            link.click();
+
+            // Memory clear
+            URL.revokeObjectURL(link.href);
+        });
+
+
+        // Navbar Toggle
+
+        function openMenu() {
+            document.querySelector(".nav-menu").style.display = "flex";
+        }
+
+        function closeMenu() {
+            document.querySelector(".nav-menu").style.display = "none";
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

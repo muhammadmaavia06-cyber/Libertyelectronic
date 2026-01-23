@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liberty Electronic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Inter, Poppins, sans-serif
+        }
+
+        body {
+            background: #0b0f14;
+            color: #fff;
+            overflow-x: hidden
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 130px;
+            background: #05070c;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 70px;
+            border-bottom: 1px solid rgba(0, 229, 255, .15);
+            z-index: 1000
+        }
+
+        .logo img {
+            height: 150px;
+        }
+
+        /* MENU + UNDERLINE */
+        .menu {
+            position: relative;
+            display: flex;
+            gap: 35px
+        }
+
+        .menu-item {
+            cursor: pointer;
+            padding: 5px 0
+        }
+
+        .menu-item:hover {
+            color: #00e5ff
+        }
+
+        .nav-underline {
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            height: 3px;
+            width: 0;
+            background: linear-gradient(90deg, #00E5FF, #7C4DFF);
+            border-radius: 5px;
+            transition: .35s ease;
+        }
+
+        /* MEGA MENU */
+        .mega {
+            position: fixed;
+            top: 130px;
+            left: 0;
+            width: 100%;
+            background: #0e1320;
+            padding: 35px 70px;
+            display: flex;
+            gap: 40px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: .3s;
+            z-index: 999
+        }
+
+        .mega.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0)
+        }
+
+        .brands {
+            width: 22%
+        }
+
+        .brand {
+            padding: 14px;
+            margin-bottom: 10px;
+            background: #111827;
+            border-radius: 10px;
+            cursor: pointer
+        }
+
+        .brand:hover,
+        .brand.active {
+            background: #00e5ff;
+            color: #000
+        }
+
+        .products {
+            width: 78%;
+            background: #111827;
+            padding: 25px;
+            border-radius: 16px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px
+        }
+
+        /* 🔥 CARD ANIMATION (ONLY NEW PART) */
+        .card {
+            background: #0b0f14;
+            padding: 15px;
+            border-radius: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform .35s ease, box-shadow .35s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.04);
+            box-shadow: 0 15px 35px rgba(0, 229, 255, .35);
+        }
+
+        .card img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            transition: transform .35s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.12)
+        }
+
+        .card p {
+            margin-top: 10px;
+            color: #9ca3af;
+            transition: .3s;
+        }
+
+        .card:hover p {
+            color: #00e5ff;
+            transform: translateY(-3px)
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            margin-top: 130px;
+            position: relative
+        }
+
+        .hero video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .65)
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 70px
+        }
+
+        .hero-text h1 {
+            font-size: 56px
+        }
+
+        .hero-text span {
+            color: #00E5FF
+        }
+
+        .hero-text p {
+            margin: 20px 0 30px;
+            color: #9ca3af
+        }
+
+        .hero-text button {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(135deg, #00E5FF, #7C4DFF);
+            color: #000;
+            transition: .3s;
+        }
+
+        .hero-text button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 229, 255, .6);
+        }
+
+        /* OUR SERVICES */
+        .h2_1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #22d3ee, #a855f7);
+            margin: 0 auto 50px;
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+        }
+
+
+        .services-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .services-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+
+        .service-card {
+            width: 250px;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            background: rgba(18, 18, 26, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(85, 247, 247, 0.4);
+            box-shadow:
+                0 10px 30px -10px rgba(0, 0, 0, 0.8),
+                0 0 20px rgba(34, 211, 238, 0.856);
+        }
+
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            font-size: 32px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+
+            background: linear-gradient(135deg, #22d3ee, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+
+            filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.363));
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #f1f5f9;
+        }
+
+        .service-desc {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #5de0d8, #8d66a8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* REVIEWS */
+        .main-box {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .item-box {
+            text-align: center;
+
+        }
+
+        svg {
+            width: 160px;
+            height: 160px;
+            transform: rotate(-90deg);
+        }
+
+        .back-ring {
+            fill: none;
+            stroke: #1e2438;
+            stroke-width: 12;
+        }
+
+        .front-ring {
+            fill: none;
+            stroke-width: 12;
+            stroke-linecap: round;
+            stroke-dasharray: 440;
+            stroke-dashoffset: 440;
+        }
+
+        .ring-box {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .show-number {
+            position: absolute;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .stat-title {
+            margin-top: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-desc {
+            font-size: 13px;
+            color: #b8c1ff;
+            max-width: 200px;
+            margin-top: 4px;
+            line-height: 1.5;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reviews-section {
+            padding: 100px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+
+
+        .reveal-text {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+
+        .reveal-text span {
+            display: inline-block;
+            transform: translateY(100%);
+            animation: textReveal 0.9s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+
+        .reveal-text::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #5de0d8, #8d66a8);
+            transform: translateX(-100%);
+            animation: boxReveal 0.9s ease forwards;
+            z-index: -1;
+        }
+
+
+
+        .heading {
+            font-size: 70px;
+            font-weight: 800;
+            color: #5de0d8;
+            text-align: center;
+            display: block;
+        }
+
+
+
+        .subtitle {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #cfd6ff;
+        }
+
+
+        .subtitle::before {
+            animation-delay: 0.25s;
+        }
+
+        .subtitle span {
+            animation-delay: 0.85s;
+        }
+
+        /* Animations */
+        @keyframes boxReveal {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes textReveal {
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= CONTACT ================= */
+        .contact {
+            padding: 120px 80px;
+            background: #0b0f14;
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .contact-text h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .contact-text h2 span {
+            color: #00E5FF;
+        }
+
+        .contact-text p {
+            color: #9ca3af;
+            line-height: 1.7;
+            max-width: 420px;
+        }
+
+        /* FORM */
+        .contact-form {
+            background: #05070c;
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid rgba(0, 229, 255, .2);
+            box-shadow: 0 0 30px rgba(0, 229, 255, .08);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            margin-bottom: 18px;
+            padding: 14px 16px;
+            background: #0e1320;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 10px;
+            color: #fff;
+            outline: none;
+            transition: .3s;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #9ca3af;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #00E5FF;
+            box-shadow: 0 0 10px rgba(0, 229, 255, .3);
+        }
+
+        /* BUTTON */
+        .contact-form button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(135deg, #00E5FF, #7C4DFF);
+            color: #000;
+            transition: .3s;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(0, 229, 255, .6);
+        }
+
+        .card-container_1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            min-height: 100vh;
+            flex-wrap: nowrap;
+            padding: 0 20px;
+        }
+
+        .card_1 {
+            width: 18rem;
+            background-color: #0f111a;
+            border: 1px solid #1f222e;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+        }
+
+        .card_1:hover {
+
+            border-color: #4facfe;
+            box-shadow: 0 10px 40px rgba(79, 172, 254, 0.1);
+        }
+
+        .card_1 img {
+            height: 320px;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+            padding: 60px 30px;
+            transition: transform 0.3s ease;
+            display: block;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+        }
+
+        .item-name_1 {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            padding: 8px 16px;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            text-align: center;
+            width: 90%;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .view-btn_1 {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0px;
+            display: none;
+            opacity: 0;
+            background: linear-gradient(90deg, #5de0d8 0%, #8d66a8 100%);
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px 25px;
+            cursor: pointer;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(94, 231, 223, 0.4);
+        }
+
+        .card-body {
+            display: none;
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 50px;
+            color: #ffffff;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .title span {
+            color: #5EE7DF;
+        }
+
+        .footer {
+            background: #05070c;
+            padding: 70px 80px 30px;
+            margin-top: 120px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 18px;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer-col a {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #9ca3af;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .footer-col a:hover {
+            color: #00E5FF;
+            transform: translateX(4px);
+        }
+
+        .footer-col.last h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #00E5FF;
+            text-shadow: 0 0 10px rgba(0, 229, 255, .5);
+        }
+
+        .footer-col .last p {
+            color: #9ca3af;
+            max-width: 280px;
+            line-height: 1.6;
+        }
+
+        .footer-divider {
+            margin: 45px 0 25px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #00E5FF, transparent);
+            opacity: .4;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        .socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 229, 255, .3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00E5FF;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .socials a:hover {
+            background: #00E5FF;
+            color: #000;
+            box-shadow: 0 0 15px #00E5FF;
+        }
+
+        /* ================= CATEGORY COLORS ================= */
+        #mobile {
+            --accent: #00E5FF;
+        }
+
+        #home {
+            --accent: #7C4DFF;
+        }
+
+        #tv {
+            --accent: #00FF9C;
+        }
+
+        #monitors {
+            --accent: #FFB703;
+        }
+
+        #vision {
+            --accent: #FF4D6D;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        /* ---------- BIG TV / 4K ---------- */
+        @media (min-width: 1600px) {
+            .navbar {
+                padding: 0 140px;
+            }
+
+            .hero-text h1 {
+                font-size: 68px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        /* ---------- LAPTOP ---------- */
+        @media (max-width: 1200px) {
+            .navbar {
+                padding: 0 40px;
+                height: 110px;
+            }
+
+            .logo img {
+                height: 80px;
+            }
+
+            .mega {
+                padding: 30px 40px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .hero-text h1 {
+                font-size: 46px;
+            }
+        }
+
+        /* ---------- MINI LAPTOP / TABLET ---------- */
+        @media (max-width: 992px) {
+            .navbar {
+                height: auto;
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                gap: 22px;
+                flex-wrap: wrap;
+            }
+
+            .mega {
+                padding: 25px;
+                flex-direction: column;
+            }
+
+            .brands,
+            .products {
+                width: 100%;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-text h1 {
+                font-size: 38px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .footer-top {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        /* ---------- MOBILE ---------- */
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 15px;
+            }
+
+            .logo img {
+                height: 65px;
+            }
+
+            .card-container_1 {
+                flex-wrap: wrap;
+            }
+
+            .card_1 {
+                width: 16rem;
+            }
+
+            .card_1 img {
+                height: 280px;
+                padding: 45px 20px;
+            }
+
+
+            .menu {
+                justify-content: center;
+                gap: 16px;
+                font-size: 14px;
+            }
+
+            .nav-underline {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 30px;
+            }
+
+            .hero-text p {
+                font-size: 14px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand {
+                text-align: center;
+            }
+
+            .contact {
+                padding: 90px 20px;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .footer {
+                padding: 60px 20px 25px;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-col a:hover {
+                transform: none;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./logo-Photoroom.png">
+        </div>
+
+        <div class="menu">
+            <div class="menu-item" data-type="mobile">Mobile</div>
+            <div class="menu-item" data-type="tv">TV</div>
+            <div class="menu-item" data-type="vr">VR</div>
+            <div class="menu-item" data-type="watch">Smart Watch</div>
+            <div class="menu-item" data-type="laptop">Laptop</div>
+            <div class="nav-underline"></div>
+        </div>
+    </nav>
+
+    <!-- MEGA MENU -->
+    <div class="mega" id="mega">
+        <div class="brands" id="brands"></div>
+        <div class="products" id="products"></div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="./0103 (1)(1).mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Experience the <span>Future</span><br>of Technology</h1>
+                <p>Discover next-gen smart devices & innovation.</p>
+                <button type="button"
+                    onclick="document.getElementById('product').scrollIntoView({ behavior: 'smooth' })">
+                    Explore Models
+                </button>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Product  -->
+
+    <h1 class="title">Our <span style="color: #5EE7DF;">Products</span></h1>
+    <section class="card-container_1" id="product">
+        <div class="card_1">
+            <img src="./assets/phone.png" alt="Samsung Galaxy S25 Ultra">
+            <div class="item-name_1">Mobile Phones</div>
+            <a href="./PHONE/index.html" target="_blank">
+                <button class="view-btn_1">View All</button>
+            </a>
+
+        </div>
+
+        <div class="card_1">
+            <img src="./assets/tv.png" alt="Smart TV">
+            <div class="item-name_1">TV</div>
+            <a href="./LED/lcd.html" target="_blank">
+                <button class="view-btn_1">View All</button>
+            </a>
+        </div>
+
+        <div class="card_1">
+            <img src="./assets/vr.png" alt="VR Headset">
+            <div class="item-name_1">VR Headsets</div>
+            <a href="./vr/vr.html" target="_blank">
+                <button class="view-btn_1">View All</button></a>
+        </div>
+
+        <div class="card_1">
+            <img src="./assets/lappy.png" alt="Laptop">
+            <div class="item-name_1">Laptops</div>
+            <a href="./laptop/laptop.html" target="_blank">
+                <button class="view-btn_1">View All</button>
+            </a>
+        </div>
+
+        <div class="card_1">
+            <img src="./assets/smartwatch.png" alt="Smartwatch">
+            <div class="item-name_1">Smart Watches</div>
+            <a href="./watch/watches.html" target="_blank">
+                <button class="view-btn_1">View All</button>
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Our Services -->
+
+    <h2 class="h2_1" id="services">Our <span class="gradient-text">Services</span></h2>
+    <div class="underline"></div>
+
+    <div class="services-wrapper">
+
+        <div class="services-row">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <div class="service-title">Mobile Phones</div>
+                <div class="service-desc">Latest smartphones with full warranty.</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-laptop"></i></div>
+                <div class="service-title">Laptops</div>
+                <div class="service-desc">High-performance laptops for every need.</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+                <div class="service-title">VR Headsets</div>
+                <div class="service-desc">Immersive VR devices, fully authentic.</div>
+            </div>
+        </div>
+
+        <div class="services-row">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-tv"></i></div>
+                <div class="service-title">Smart TVs</div>
+                <div class="service-desc">Crystal clear displays with smart features.</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fa-solid fa-wave-square"></i>
+                </div>
+                <div class="service-title">Smart Watches</div>
+                <div class="service-desc">
+                    Fitness, notifications, and premium design.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- REVIEWS -->
+
+    <section class="reviews-section" id="Reviews">
+        <h2 class="reveal-text heading">
+            <span>Reviews</span>
+        </h2>
+
+        <p class="reveal-text subtitle">
+            <span>What our customers say about Liberty Electronics</span>
+        </p>
+    </section>
+
+    <div class="main-box">
+
+        <svg width="0" height="0">
+            <defs>
+                <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#4fd1ff" />
+                    <stop offset="50%" stop-color="#6a6cff" />
+                    <stop offset="100%" stop-color="#8a3ffc" />
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <div class="item-box">
+            <div class="ring-box">
+                <div class="show-number" id="show1">0%</div>
+                <svg>
+                    <circle class="back-ring" cx="80" cy="80" r="70"></circle>
+                    <circle class="front-ring" id="ring1" cx="80" cy="80" r="70" stroke="url(#buttonGradient)"></circle>
+                </svg>
+            </div>
+            <div class="stat-title">Customer Satisfaction</div>
+            <div class="stat-desc">Positive experience across all product categories</div>
+        </div>
+
+        <div class="item-box">
+            <div class="ring-box">
+                <div class="show-number" id="show2">0%</div>
+                <svg>
+                    <circle class="back-ring" cx="80" cy="80" r="70"></circle>
+                    <circle class="front-ring" id="ring2" cx="80" cy="80" r="70" stroke="url(#buttonGradient)"></circle>
+                </svg>
+            </div>
+            <div class="stat-title">Product Quality</div>
+            <div class="stat-desc">High standards for phones, laptops, and wearables</div>
+        </div>
+
+        <div class="item-box">
+            <div class="ring-box">
+                <div class="show-number" id="show3">0%</div>
+                <svg>
+                    <circle class="back-ring" cx="80" cy="80" r="70"></circle>
+                    <circle class="front-ring" id="ring3" cx="80" cy="80" r="70" stroke="url(#buttonGradient)"></circle>
+                </svg>
+            </div>
+            <div class="stat-title">Authenticity Guarantee</div>
+            <div class="stat-desc">100% original products with verified sourcing</div>
+        </div>
+
+        <div class="item-box">
+            <div class="ring-box">
+                <div class="show-number" id="show4">0%</div>
+                <svg>
+                    <circle class="back-ring" cx="80" cy="80" r="70"></circle>
+                    <circle class="front-ring" id="ring4" cx="80" cy="80" r="70" stroke="url(#buttonGradient)"></circle>
+                </svg>
+            </div>
+            <div class="stat-title">Display Performance</div>
+            <div class="stat-desc">Top-rated visuals on TVs and smart displays</div>
+        </div>
+
+    </div>
+
+    <!-- Contact Us -->
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+
+            <div class="contact-text">
+                <h2>Contact <span>Us</span></h2>
+                <p>
+                    Have questions about our products or services?
+                    Reach out to Liberty Electronic — we’re here to help.
+                </p>
+            </div>
+
+            <form class="contact-form" id="contactus">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-col last">
+                <h2>LIBERTY</h2>
+                <p>Next-gen electronics & smart technology for the future.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>PRODUCTS</h4>
+                <a href="./PHONE/index.html" target="_blank">Mobiles</a>
+                <a href="./laptop/laptop.html" target="_blank">Laptops</a>
+                <a href="./watch/watches.html" target="_blank">Smart Watches</a>
+                <a href="./LED/lcd.html" target="_blank">TV & LCDs</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>SERVICES</h4>
+                <a href="#">Warranty</a>
+                <a href="#">Support</a>
+                <a href="#">Repairs</a>
+                <a href="#">Theme Tweak</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>COMPANY</h4>
+                <a href="#">About Us</a>
+                <a href="#contactus">Contact</a>
+                <a href="#">Affiliates</a>
+                <a href="#">Resources</a>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <div class="socials">
+                <a href="#">F</a>
+                <a href="#">T</a>
+                <a href="#">L</a>
+                <a href="#">I</a>
+            </div>
+            <p>© 2026 Liberty Electronic. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    D
+    <script>
+        const data = {
+
+            laptop: {
+                HP: [
+                    { name: "HP 15-fd0150WM (Core i5, 8GB, 512GB SSD)", img: " laptop/assets/hp-1.png" },
+                    { name: "HP 15-FD0647TU (Core i5, 8GB, 512GB SSD)", img: " laptop/assets/hp-3-1.png" },
+                    { name: "HP Victus 15-FA2787NR (Core i7, RTX 5060)", img: " laptop/assets/hp-3-2.png" },
+                    { name: "HP OMNIbook X Flip 16 (Ultra 7, 2TB SSD)", img: " laptop/assets/hp-4-4.png" }
+                ],
+
+                Samsung: [
+                    { name: "Galaxy Book 4 (Core 7, 16GB, 512GB)", img: " laptop/assets/samsung-2-1.png" },
+                    { name: "Galaxy Book 4 (Ultra 5, 8GB)", img: " laptop/assets/samsung-3-1.png" },
+                    { name: "Galaxy Book 4 Edge (Snapdragon X)", img: " laptop/assets/samsung-4-1.png" },
+                    { name: "Galaxy Book 5 Pro 360 (Ultra 7)", img: " laptop/assets/samung-4.png" }
+                ],
+
+                Vizio: [
+                    { name: "Vizio CT15-A1 (Core i5, 4GB)", img: " laptop/assets/vizio-1.png" },
+                    { name: "Vizio CT15 Ultrabook (Core i5)", img: " laptop/assets/vizio-3-1.png" },
+                    { name: "Vizio CT14 (Core i3)", img: " laptop/assets/vizio-4-1.png" },
+                    { name: "Vizio CN15-A5 (Core i7)", img: "laptop/assets/vizio-4.png" }
+                ],
+
+                Apple: [
+                    { name: "MacBook Air M3", img: " laptop/assets/apple-2-1.png" },
+                    { name: "MacBook Pro 14 M3", img: "laptop/assets/apple-3-1.png" },
+                    { name: "MacBook Pro 16 M3", img: " laptop/assets/apple-4-1.png" },
+                    { name: "MacBook Air M2", img: " laptop/assets/apple-4.png" }
+                ]
+            },
+
+
+            tv: {
+                Vizio: [
+                    { name: "Vizio 24″ D-Series Smart TV", img: "LED/assets/vizio-1.png" },
+                    { name: "Vizio 43″ V-Series 4K", img: "LED/assets/vizio-2-1.png" },
+                    { name: "Vizio 50″ Quantum Pro QLED", img: "LED/assets/vizio-3-1.png" },
+                    { name: "Vizio Premium 4K QLED", img: "LED/assets/vizio-4-2.png" }
+                ],
+                Panasonic: [
+                    { name: "Panasonic 43″ 4K UHD (GS506M)", img: "LED/assets/panasonic-2.png" },
+                    { name: "Panasonic 32″ Smart LED", img: "LED/assets/panasonic-2-1.png" },
+                    { name: "Panasonic 55″ 4K UHD", img: "LED/assets/panasonic-3-2.png" },
+                    { name: "Panasonic 65″ 4K Smart LED", img: "LED/assets/panasonic-4-1.png" }
+                ],
+                Sharp: [
+                    { name: "Sharp 50″ 4K Smart UHD", img: "LED/assets/sharp-2.png" },
+                    { name: "Sharp 50″ UHD Smart TV", img: "LED/assets/sharp-2-2.png" },
+                    { name: "Sharp 50″ 4K UE630X", img: "LED/assets/sharp-3-2.png" },
+                    { name: "Sharp 50″ Full HD LED", img: "LED/assets/sharp-4-1.png" }
+                ],
+                Samsung: [
+                    { name: "Samsung 55″ AU7000 4K", img: "LED/assets/samsung-3.png" },
+                    { name: "Samsung 43″ DU7000 4K", img: "LED/assets/samsung-2-2.png" },
+                    { name: "Samsung 55″ DU7000 4K", img: "LED/assets/samsung-3-1.png" },
+                    { name: "Samsung 65″ DU7000 4K", img: "LED/assets/samsung-4-2.png" }
+                ]
+            },
+
+            watch: {
+                Fitbit: [
+                    { name: "Fitbit Versa 4", img: " watch/assets/fitbit-sense-1-1.png" },
+                    { name: "Fitbit Sense 2", img: " watch/assets/fitbit-versa-3-2.png" },
+                    { name: "Fitbit Versa 3", img: " watch/assets/fit-5.png" },
+                    { name: "Fitbit Health Watch", img: " watch/assets/fit-7.png" }
+                ],
+                Apple: [
+                    { name: "Apple Watch Series 11", img: " watch/assets/apple-1-3.png" },
+                    { name: "Apple Watch Ultra 3", img: " watch/assets/apple-2-2.png" },
+                    { name: "Apple Watch Series 10", img: " watch/assets/apple-3-1.png" },
+                    { name: "Apple Watch SE 3", img: " watch/assets/apple-4-4.png" }
+                ],
+                Google: [
+                    { name: "Pixel Watch 3", img: " watch/assets/pixel-1.png" },
+                    { name: "Pixel Watch", img: " watch/assets/pixel-3-1.png" },
+                    { name: "Pixel Watch 2", img: " watch/assets/pixel-4-2.png" },
+                    { name: "Pixel Watch 2 (Latest)", img: " watch/assets/pixel-4.png" }
+                ],
+                Samsung: [
+                    { name: "Galaxy Watch 7 (40mm)", img: " watch/assets/samsung-1.png" },
+                    { name: "Galaxy Watch 7 (44mm)", img: " watch/assets/samsung-3-1.png" },
+                    { name: "Galaxy Watch 6", img: " watch/assets/samsung-3.png" },
+                    { name: "Galaxy Watch Ultra", img: " watch/assets/samung-4-4.png" }
+                ]
+            },
+
+            mobile: {
+                Apple: [
+                    { name: "iPhone 15 Pro Max", img: " assets/iphone15promax.png" },
+                    { name: "iPhone 16 Pro", img: "assets/iphone16pro.png" },
+                    { name: "iPhone Air", img: "assets/iphone17air.png" },
+                    { name: "iPhone 17 Pro Max", img: "assets/iphone17pro.png" }
+                ],
+                Samsung: [
+                    { name: "Galaxy A54 5G", img: "assets/samsunga54.png" },
+                    { name: "Galaxy S25 Ultra", img: "assets/samsungS25.png" },
+                    { name: "Galaxy A56 5G", img: "assets/samsunga56.png" },
+                    { name: "Galaxy A36 5G", img: "assets/samsunga36.png" }
+                ],
+                Google: [
+                    { name: "Pixel 8a", img: "assets/pixel8a.png" },
+                    { name: "Pixel 8 Pro", img: "assets/pixel8pro.png" },
+                    { name: "Pixel 9", img: "assets/pixel9.png" },
+                    { name: "Pixel 7a", img: "assets/pixel7a.png" }
+                ],
+                Asus: [
+                    { name: "Zenfone 12 Ultra", img: "assets/asus12ultra.png" },
+                    { name: "Zenfone 10", img: "assets/asus10.png" },
+                    { name: "ROG Phone 8", img: "assets/asusrog8.png" },
+                    { name: "ROG Phone 7", img: "assets/asusrog7.png" }
+                ]
+            },
+
+            vr: {
+                Samsung: [
+                    { name: "Samsung HMD Odyssey+ (~PKR 114,000)", img: "vr/assets/samsung-1.png" },
+                    { name: "Samsung Gear VR (~PKR 6k–8k)", img: " vr/assets/samsung-3-1.png" },
+                    { name: "Samsung Gear VR Controller (~PKR 14k–24k)", img: " vr/assets/samsung-4-1.png" },
+                    { name: "Samsung Odyssey+ WMR", img: " vr/assets/varjo-vr-4.png" }
+                ],
+                DPVR: [
+                    { name: "DPVR E4 VR Headset (~PKR 235k+)", img: " vr/assets/dpvr-1-2.png" },
+                    { name: "DPVR E4 4K SteamVR", img: " vr/assets/dpvr-2-4.png" },
+                    { name: "DPVR P1 Pro Standalone", img: " vr/assets/dpvr-3-3.png" },
+                    { name: "DPVR E3 4K PCVR", img: " vr/assets/dpvr-4-4.png" }
+                ],
+                Sony: [
+                    { name: "PlayStation VR2", img: " vr/assets/sony-2-2.png" },
+                    { name: "PS VR2 with Controllers", img: " vr/assets/sony-3-1.png" },
+                    { name: "PS VR2 Horizon Bundle", img: " vr/assets/sony-4-1.png" },
+                    { name: "PlayStation VR (PSVR 1)", img: " vr/assets/sony-vr-1.png" }
+                ],
+                Varjo: [
+                    { name: "Varjo VR-3 (~PKR 1.7M+)", img: " vr/assets/varjo-3-1.png" },
+                    { name: "Varjo XR-3 (~PKR 2.2M+)", img: " vr/assets/varjo-4-1.png" },
+                    { name: "Varjo Aero", img: " vr/assets/varjo-vr-2-1.png" },
+                    { name: "Varjo VR-3 (Alt)", img: " vr/assets/varjo-vr-4.png" }
+                ]
+            }
+
+        };
+
+
+
+        const mega = document.getElementById("mega");
+        const brandsBox = document.getElementById("brands");
+        const productsBox = document.getElementById("products");
+
+        document.querySelectorAll(".menu-item").forEach(m => {
+            m.addEventListener("mouseenter", () => {
+                mega.classList.add("active");
+                loadBrands(m.dataset.type);
+            });
+        });
+        mega.addEventListener("mouseleave", () => mega.classList.remove("active"));
+
+        function loadBrands(type) {
+            brandsBox.innerHTML = "";
+            productsBox.innerHTML = "";
+            Object.keys(data[type]).forEach((b, i) => {
+                const d = document.createElement("div");
+                d.className = "brand" + (i === 0 ? " active" : "");
+                d.innerText = b;
+                d.onmouseenter = () => loadProducts(type, b, d);
+                brandsBox.appendChild(d);
+                if (i === 0) loadProducts(type, b, d);
+            });
+        }
+
+        function loadProducts(type, brand, el) {
+            document.querySelectorAll(".brand").forEach(b => b.classList.remove("active"));
+            el.classList.add("active");
+
+            productsBox.innerHTML = `
+ <div class="grid">
+ ${data[type][brand].map(p => `
+  <div class="card">
+   <img src="${p.img}">
+   <p>${p.name}</p>
+  </div>
+ `).join("")}
+ </div>`;
+        }
+
+        /* underline slider */
+        const underline = document.querySelector(".nav-underline");
+        document.querySelectorAll(".menu-item").forEach(item => {
+            item.addEventListener("mouseenter", () => {
+                const r = item.getBoundingClientRect();
+                const p = item.parentElement.getBoundingClientRect();
+                underline.style.width = r.width + "px";
+                underline.style.left = (r.left - p.left) + "px";
+            });
+        });
+        document.querySelector(".menu").addEventListener("mouseleave", () => {
+            underline.style.width = "0";
+        });
+
+
+
+        $(document).ready(function () {
+            $('.card_1').hover(
+                function () {
+                    $(this).find('img').css('transform', 'scale(1.1)');
+
+                    $(this).find('.view-btn_1')
+                        .stop()
+                        .css('display', 'block')
+                        .animate({
+                            bottom: '20px',
+                            opacity: 1
+                        }, 300);
+                },
+
+
+                function () {
+                    $(this).find('img').css('transform', 'scale(1)');
+
+                    $(this).find('.view-btn_1')
+                        .stop()
+                        .animate({
+                            bottom: '0px',
+                            opacity: 0
+                        }, 300, function () {
+                            $(this).css('display', 'none');
+                        });
+                }
+            );
+        });
+
+
+
+        function runCircle(ringId, textId, maxValue) {
+            let progress = 0;
+            let step = 0.008;
+            let radius = 70;
+            let circumference = 2 * Math.PI * radius;
+
+            let loop = setInterval(function () {
+                progress += step;
+                if (progress > 1) progress = 1;
+
+                let ease =
+                    progress < 0.5
+                        ? 2 * progress * progress
+                        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+                let percent = ease * maxValue;
+                $(textId).text(Math.round(percent) + "%");
+
+                let offset = circumference - (percent / 100) * circumference;
+                $(ringId).css("stroke-dashoffset", offset);
+
+                if (progress >= 1) clearInterval(loop);
+            }, 6);
+        }
+
+        $(document).ready(function () {
+            runCircle("#ring1", "#show1", 93);
+            runCircle("#ring2", "#show2", 87);
+            runCircle("#ring3", "#show3", 100);
+            runCircle("#ring4", "#show4", 96);
+        });
+
+    </script>
+
+
+</body>
+
+</html>

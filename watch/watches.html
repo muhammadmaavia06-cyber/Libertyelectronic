@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Your Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="liberty-navbar">
+        <div class="nav-logo">
+            <img style="height: 150px;" src="../logo-Photoroom.png" alt="Liberty Electronic">
+        </div>
+
+        <!-- Toggle button (mobile only) -->
+        <div class="nav-toggle" onclick="openMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-menu">
+            <li class="close-menu">
+                <span onclick="closeMenu()">✖</span>
+            </li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#Reviews">Reviews</a></li>
+            <li><a href="../index.html#contact">Contact Us</a></li>
+            <li><a href="../index.html#services">Our Services</a></li>
+            <li class="cart">
+                <a href="#" onclick="openCart()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </li>
+        </ul>
+
+
+
+        <div id="cartModal" style="display:none;">
+            <div class="modal-overlay" onclick="closeCart()"></div>
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeCart()">&times;</span>
+                <h2>Your Cart</h2>
+                <div id="cartItems"></div>
+                <p id="emptyCart">Your cart is empty 🛒</p>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="reveal-box">
+            <h1>Find Your Perfect <span class="gradient-text">watch</span></h1>
+        </div>
+
+        <br>
+
+        <div class="reveal-box delay-animation">
+            <p>" Innovation, right on your wrist 💡⌚"</p>
+        </div>
+
+        <div>
+            <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+                Explore Models
+            </button>
+        </div>
+    </header>
+
+    <section class="card-container" id="products">
+
+        <!-- CARD 1 -->
+        <div class="card" data-slides='[
+  {
+    "img":"assets/fitbit-2.png",
+    "desc":"Fitbit Versa 4 – Fitness-first smartwatch with up to 6+ days of battery life, keeping you powered through workouts and daily activities."
+  },
+  {
+    "img":"assets/fitbit-4.png",
+    "desc":"Smart fitness tracking made simple – Monitor heart rate, sleep, steps, and workouts with intuitive insights and personalized guidance."
+  },
+  {
+    "img":"assets/fitbit-1.png",
+    "desc":"Stay active. Stay informed. Stay fit – Receive notifications, track progress, and stay motivated all from your wrist with a sleek, lightweight design."
+  }
+]'>
+
+            <div class="img-area"><img src="assets/fitbit-3.png" alt="fitbit versa"></div>
+            <div class="item-name">FITBIT VERSA 4</div>
+            <p class="item-desc">
+                The fitbit versa 4 smartwatch with heart-rate & activity tracking
+            </p>
+
+            <div class="price">PKR 59,000 - PKR 89,999 </div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="rating-num">5</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card" data-slides='[
+    {"img":"assets/fit-6.png","desc":"Smart fitness made easy,\nTrack your daily steps and heart rate,\nStay motivated with real-time insights,\nAchieve your health goals effortlessly."},
+    {"img":"assets/fit-5.png","desc":"Track more with less effort,\nCharge quickly and last all week,\nMonitor your workouts and sleep,\nGet reminders to move every day."},
+    {"img":"assets/fit-8.png","desc":"Built to move with you,\nLightweight and comfortable design,\nDurable for any activity or weather,\nYour companion for an active lifestyle."}
+]'>
+            <div class="img-area"><img src="assets/fit-7.png" alt="fitbit versa 4"></div>
+            <div class="item-name">FITBIT VERSA 4 Pro</div>
+            <p class="item-desc">
+                Fitbit Versa 4 Fitness & health smartwatch with built-in GPS and long battery life
+            </p>
+
+            <div class="price">PKR 59,000 - PKR 84,000</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i>
+                <span class="rating-num">4</span>
+            </div>
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card" data-slides='[
+    {"img":"assets/fitbit-sense-1-4.png","desc":"ECG & SpO₂ monitoring built-in,\nTrack heart rhythm and oxygen levels,\nStress management and guided breathing,\nSmarter insights for daily wellness."},
+    {"img":"assets/fitbit-sense-1-3.png","desc":"Premium health wearable design,\nWater-resistant and lightweight build,\nSleep tracking and skin temperature sensing,\nYour personal wellness companion."},
+    {"img":"assets/fitbit-sense-1-2.png","desc":"Advanced smartwatch features included,\nTrack activity, workouts, and calories,\nReceive notifications on the go,\nStay connected while staying healthy."}
+]'>
+            <div class="img-area"><img src="assets/fitbit-sense-1-1.png" alt="fitbit sense"></div>
+            <div class="item-name">FITBIT SENSE 2</div>
+            <p class="item-desc">
+                Fitbit sense dvanced health smartwatch with ECG SpOT
+            </p>
+
+            <div class="price">PKR 63,549 - PKR 74,999</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="rating-num">5</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card" data-slides='[
+    {"img":"assets/fitbit-sense-1-1.png","desc":"Built-in GPS for outdoor workouts,\nTrack your heart rate 24/7,\nReceive smartphone notifications,\nStay motivated and active every day."},
+    {"img":"assets/fitbit-sense-1-4.png","desc":"Monitor heart health and wellness,\nTrack sleep patterns and activity,\nGuided workouts and reminders,\nAll-in-one fitness smartwatch."},
+    {"img":"assets/fitbit-sense-1-3.png","desc":"Versa 3 combines fitness and smart features,\nTrack steps, calories, and distance,\nSmartphone alerts and voice assistant,\nDesigned to keep you healthy and connected."}
+]'>
+            <div class="img-area"><img src="assets/fitbit-sense-1-2.png" alt="fitbitversa 3"></div>
+            <div class="item-name">FITBIT VERSA 3</div>
+            <p class="item-desc">
+                Fitbit Versa 3 — GPS smartwatch with heart-rate tracking & voice assistant
+            </p>
+
+            <div class="price">PKR 46,999 to - PKR 53,000</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i>
+                <span class="rating-num">4</span>
+            </div>
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="card" data-slides='[
+    {"img":"assets/apple-1-2.png","desc":"Precision health tracking for heart and blood oxygen,\nRugged, premium titanium design,\nTrack workouts, swimming, and outdoor adventures,\nStay connected with calls, messages, and apps."},
+    {"img":"assets/apple-1-1.png","desc":"Advanced features for fitness and wellness,\nBuilt to withstand extreme conditions,\nGPS and altimeter for outdoor navigation,\nAll-day battery to keep up with your lifestyle."},
+    {"img":"assets/apple-1-4.png","desc":"Smartwatch designed for adventure and endurance,\nWater-resistant and impact-resistant build,\nTrack activity, heart rate, and sleep,\nReceive notifications and stay in touch on the go."}
+]'>
+            <div class="img-area"><img src="assets/apple-1-3.png" alt="apple watch"></div>
+            <div class="item-name">APPLE WATCH ULTRA 3</div>
+            <p class="item-desc">
+                Rugged Premium smarctwatch with advanced health & advanced features
+            </p>
+
+            <div class="price">PKR 230,000 - PKR 300,000</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i> <!-- empty star -->
+                <span class="rating-num">4</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="card" data-slides='[
+    {"img":"assets/apple-2-2.png","desc":"Smartwatch with enhanced sensors for health tracking,\nMonitor heart rate, SpO₂, and workouts,\nSmooth performance with faster processor,\nStay connected with calls, messages, and apps."},
+    {"img":"assets/apple-2-3.png","desc":"Faster, smarter, and more responsive than ever,\nTrack daily activity and sleep patterns,\nAdvanced fitness and wellness insights,\nNotifications and apps at your fingertips."},
+    {"img":"assets/apple-2-4.png","desc":"Sleek and stylish design for all-day wear,\nPowerful tools for fitness and health monitoring,\nGPS, workouts, and outdoor tracking included,\nStay motivated and connected wherever you go."}
+]'>
+            <div class="img-area"><img src="assets/apple-2-1.png" alt="apple watch"></div>
+            <div class="item-name">APPLE WATCH S10</div>
+            <p class="item-desc">
+                Latest mainstream Apple Watch with OLED display and health Sensor
+            </p>
+
+            <div class="price">PKR 97,000 - PKR 119,000</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i>
+                <i class="fas fa-star empty"></i>
+                <span class="rating-num">3</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="card" data-slides='[
+    {"img":"assets/apple-3-2.png","desc":"Apple Watch Series 10 Pro — smarter health on your wrist,\nTrack heart rate, SpO₂, and sleep patterns,\nReceive real-time insights for wellness and fitness,\nStay connected with calls, messages, and apps."},
+    {"img":"assets/apple-3-3.png","desc":"Track workouts, activity, and daily steps seamlessly,\nGPS and advanced sensors for outdoor adventures,\nMonitor performance and recovery accurately,\nPersonalized reminders to keep you motivated."},
+    {"img":"assets/apple-3-1.png","desc":"Designed for high performance and all-day comfort,\nSleek, durable design for everyday wear,\nPowerful processor for smooth responsiveness,\nYour ultimate companion for fitness and connectivity."}
+]'>
+            <div class="img-area"><img src="assets/apple-3-4.png" alt="apple watch3"></div>
+            <div class="item-name">APPLE WATCH S10 Pro</div>
+            <p class="item-desc">
+                Latest mainstream Apple Watch with OLED display and health Sensor
+            </p>
+
+            <div class="price"></div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i>
+                <i class="fas fa-star empty"></i>
+                <span class="rating-num">3</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="card" data-slides='[
+    {"img":"assets/apple-4-1.png","desc":"Apple Watch S3 — simplified fitness tracking,\nMonitor your heart rate and daily activity,\nTrack workouts with GPS and step counting,\nStay motivated with smart notifications and alerts."},
+    {"img":"assets/apple-4-4.png","desc":"Fitness, GPS, and smart alerts all in one,\nTrack runs, walks, and cycling routes accurately,\nReceive calls, messages, and reminders on your wrist,\nDesigned for everyday convenience and reliability."},
+    {"img":"assets/apple-4-2.png","desc":"Smart, simple, and reliable for daily use,\nLightweight and comfortable for all-day wear,\nTrack your steps, calories, and active minutes,\nStay connected while keeping health and fitness in check."}
+]'>
+            <div class="img-area"><img src="assets/apple-4-3.png" alt="apple watch"></div>
+            <div class="item-name">APPLE WATCH S3</div>
+            <p class="item-desc">
+                Budget friendly witn S3 chip & fitness tracking
+            </p>
+
+            <div class="price">PKR 30,000 - PKR40,000</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i>
+                <span class="rating-num">4</span>
+            </div>
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 9 -->
+        <div class="card" data-slides='[
+    {"img":"assets/pixel-2.png","desc":"Google Pixel Watch 3 — sleek, modern design,\nTrack your heart rate, steps, and sleep patterns,\nAccess apps and notifications on your wrist,\nStay connected while keeping health insights handy."},
+    {"img":"assets/pixel-4.png","desc":"Built for fitness and daily activity tracking,\nGPS and workout modes for accurate tracking,\nMonitor stress and wellness throughout the day,\nReceive calls, messages, and smart alerts instantly."},
+    {"img":"assets/pixel-1.png","desc":"Comfortable and durable for all-day wear,\nLightweight design with customizable watch faces,\nSyncs seamlessly with your Android devices,\nYour ultimate companion for fitness and connectivity."}
+]'>
+            <div class="img-area"><img src="assets/pixel-3.png" alt="google pixel watch"></div>
+            <div class="item-name">GOOGLE PIXEL WATCH 3</div>
+            <p class="item-desc">
+                Wear OS smartwatch ith advanced health
+                & fitness tracking 24/7 hours
+            </p>
+
+            <div class="price">PKR 94,999 - PKR 144,599</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="rating-num">5</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 10 -->
+        <div class="card" data-slides='[
+    {"img":"assets/pixel-2-2.png","desc":"Google Pixel Watch — stylish, smart, and capable,\nTrack heart rate, steps, and daily activity,\nStay connected with notifications and apps,\nDesigned for comfort and everyday wear."},
+    {"img":"assets/pixel-2-3.png","desc":"Wellness you can wear on your wrist,\nMonitor sleep, stress, and overall health,\nAccess guided workouts and fitness insights,\nAll-in-one companion for a healthier lifestyle."},
+    {"img":"assets/pixel-2-4.png","desc":"Customizable watch straps for every style,\nLightweight, durable, and easy to wear,\nSyncs seamlessly with Android devices,\nYour personal assistant for fitness and connectivity."}
+]'>
+            <div class="img-area"><img src="assets/pixel-2-1.png" alt="google pixel"></div>
+            <div class="item-name">GOOGLE PIXEL WATCH</div>
+            <p class="item-desc">
+                Wear OS smartwatch with fitbit health tracking & circular design
+            </p>
+
+            <div class="price">PKR 42,500 - PKR 49,999</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i>
+                <i class="fas fa-star empty"></i>
+                <span class="rating-num">3</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 11 -->
+        <div class="card" data-slides='[
+    {"img":"assets/pixel-3-2.png","desc":"Google Pixel Watch 1 — sleek and stylish design,\nTrack your heart rate, steps, and daily activity,\nMonitor sleep and wellness with advanced sensors,\nStay connected with notifications and apps on your wrist."},
+    {"img":"assets/pixel-3-3.png","desc":"All-day health and fitness tracking included,\nBuilt-in GPS for running, cycling, and outdoor activities,\nReceive calls, messages, and alerts instantly,\nSyncs seamlessly with your Android devices."},
+    {"img":"assets/pixel-3-1.png","desc":"Comfortable, durable, and lightweight for all-day wear,\nCustomizable watch faces to match your style,\nTrack workouts, calories, and active minutes,\nYour personal companion for fitness and connectivity."}
+]'>
+            <div class="img-area"><img src="assets/pixel-3-4.png" alt="googlepixel"></div>
+            <div class="item-name">GOOGLE PIXEL</div>
+            <p class="item-desc">
+                Newer stock with advanced Sensors & google integration
+            </p>
+
+            <div class="price">PKR 74,000 - PKR 90,000,</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i>
+                <span class="rating-num">4</span>
+            </div>
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 12 -->
+        <div class="card" data-slides='[
+    {"img":"assets/pixel-4-1.png","desc":"Google Pixel Watch 2 — Google power with Fitbit heart,\nTrack heart rate, steps, and daily activity,\nMonitor sleep and overall wellness effortlessly,\nStay connected with notifications and apps on your wrist."},
+    {"img":"assets/pixel-4-3.png","desc":"Wear what matters with style and comfort,\nCustomizable watch faces and straps for your look,\nTrack workouts, calories, and active minutes,\nAll-day battery keeps up with your lifestyle."},
+    {"img":"assets/pixel-4-4.png","desc":"Your day, on your wrist with seamless integration,\nBuilt-in GPS for runs, walks, and outdoor adventures,\nReceive calls, messages, and smart alerts instantly,\nFitness, health, and connectivity in one wearable."}
+]'>
+            <div class="img-area"><img src="assets/pixel-4-2.png" alt="google pixel watch 2"></div>
+            <div class="item-name">GOOGLE PIXEL WATCH 2</div>
+            <p class="item-desc">
+                1.2″ AMOLED always-on display, Google & Fitbit health tracking
+            </p>
+
+            <div class="price">PKR 70,000 – PKR 90,000</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="rating-num">5</span>
+            </div>
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 13 -->
+        <div class="card" data-slides='[
+    {"img":"assets/samsung-2.png","desc":"Samsung Watch 6 — every move counts,\nTrack steps, workouts, and calories burned,\nMonitor heart rate, SpO₂, and sleep patterns,\nStay motivated with real-time fitness insights."},
+    {"img":"assets/samsung-3.png","desc":"Smarter health right on your wrist,\nGuided workouts and stress management tools,\nAdvanced sensors for wellness tracking,\nReceive notifications and stay connected on the go."},
+    {"img":"assets/samsung-4.png","desc":"Style meets smart performance effortlessly,\nSleek, lightweight design for all-day comfort,\nCustomizable watch faces and straps included,\nYour ultimate companion for fitness and connectivity."}
+]'>
+            <div class="img-area"><img src="assets/samsung-1.png" alt="samsung watch 6"></div>
+            <div class="item-name">SAMSUNG WATCH 6</div>
+            <p class="item-desc">
+                water resistance, long battery life, and seamless connectivity with Android devices
+            </p>
+
+            <div class="price">PKR 42,000 – PKR 52,000</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span class="rating-num">5</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 14 -->
+        <div class="card" data-slides='[
+    {"img":"assets/samsung-2-2.png","desc":"Samsung Watch 7 — stay active and stay connected,\nTrack your steps, workouts, and calories burned,\nMonitor heart rate, SpO₂, and sleep patterns,\nGet real-time insights to reach your fitness goals."},
+    {"img":"assets/samsung-2-3.png","desc":"Every beat, every move matters with precision,\nAdvanced sensors track heart and wellness metrics,\nGPS tracks runs, walks, and outdoor activities,\nStay motivated with guided workouts and reminders."},
+    {"img":"assets/samsung-2-4.png","desc":"Wellness powered by Samsung technology,\nSleek and comfortable for all-day wear,\nCustomizable watch faces and straps for style,\nSmart notifications keep you connected effortlessly."}
+]'>
+            <div class="img-area"><img src="assets/samsung-2-1.png" alt="samsung watch 7"></div>
+            <div class="item-name">SAMSUNG WATCH 7</div>
+            <p class="item-desc">
+                Super AMOLED display, powerful Exynos W1000 3 nm processor
+            </p>
+
+            <div class="price">PKR 50,000 – PKR 80,000</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i>
+                <i class="fas fa-star empty"></i>
+                <span class="rating-num">3</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 15 -->
+        <div class="card" data-slides='[
+    {"img":"assets/samsung-3-1.png","desc":"Samsung Watch 7 (44mm) — connected, healthy, in charge,\nTrack daily activity, workouts, and calories burned,\nMonitor heart rate, SpO₂, and sleep patterns,\nStay motivated with real-time health and fitness insights."},
+    {"img":"assets/samsung-3-3.png","desc":"Every beat matters with advanced sensors,\nHeart rate and wellness tracking for accuracy,\nGPS for outdoor workouts and running routes,\nGuided breathing and stress management tools included."},
+    {"img":"assets/samsung-3-4.png","desc":"Your wellness, your way on a sleek wrist,\nCustomizable watch faces and straps for style,\nSmart notifications keep you connected throughout the day,\nLightweight and durable design for all-day comfort."}
+]'>
+            <div class="img-area"><img src="assets/samsung-3-2.png" alt="samsung watch 7"></div>
+            <div class="item-name">SAMSUNG WATCH 7 (44m)</div>
+            <p class="item-desc">
+                Samsung Galaxy Watch 7 (44 mm) is a stylish Android Wear OS smartwatch
+            </p>
+
+            <div class="price">PKR 48,000 – PKR 70,000</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i>
+                <span class="rating-num">4</span>
+            </div>
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+        <!-- CARD 16 -->
+        <div class="card" data-slides='[
+    {"img":"assets/samung-4-1.png","desc":"Samsung Watch Ultra — performance that lasts all day,\nTrack heart rate, steps, and workouts accurately,\nMonitor sleep, stress, and overall wellness,\nStay connected with notifications and apps on your wrist."},
+    {"img":"assets/samung-4-2.png","desc":"Rugged design with refined features,\nDurable and water-resistant for any adventure,\nBuilt-in GPS for runs, hikes, and outdoor activities,\nGuided workouts and health insights keep you motivated."},
+    {"img":"assets/samung-4-4.png","desc":"Stay active, stay connected effortlessly,\nCustomizable watch faces and straps for style,\nPowerful processor ensures smooth performance,\nYour ultimate companion for fitness, health, and connectivity."}
+]'>
+            <div class="img-area"><img src="assets/samung-4-3.png" alt="samsung watch ultra"></div>
+            <div class="item-name">SAMSUNG WATCH ULTRA</div>
+            <p class="item-desc">
+                Premium smartwatch with titanium frame, 1.5″ AMOLED display, GPS/LTE
+            </p>
+
+            <div class="price">PKR 95,000 – PKR 115,000</div>
+
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star empty"></i>
+                <i class="fas fa-star empty"></i>
+                <span class="rating-num">3</span>
+            </div>
+
+            <button class="view-btn">View Details</button>
+            <div class="compare-check">
+                <input type="checkbox" class="compare-checkbox">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Floating Compare Button -->
+    <button id="compareBtn" style="display:none;">Compare</button>
+
+    <!-- Compare Modal -->
+    <div id="compareModal" style="display:none;">
+        <div class="modal-overlay" onclick="closeCompareModal()"></div>
+        <div class="modal-content compare-modal-content">
+            <span class="close-btn" onclick="closeCompareModal()">&times;</span>
+            <h2>Compare Products</h2>
+            <div class="compare-products" id="compareProductsContainer"></div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL ===== -->
+    <div class="product-modal" id="productModal" style="display:none;">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+
+            <div class="modal-body">
+                <div class="modal-left">
+                    <div class="slider-container">
+                        <button class="slide-btn small">❮</button>
+                        <div class="slides">
+                            <img class="active" src="" alt="Product Image 1">
+                            <img src="" alt="Product Image 2">
+                            <img src="" alt="Product Image 3">
+                        </div>
+                        <button class="slide-btn small">❯</button>
+                    </div>
+                </div>
+
+                <div class="modal-right">
+                    <h2 id="modalTitle">Product Title</h2>
+                    <p id="modalDesc">Product description goes here. Make it short and sweet.</p>
+
+                    <div class="modal-actions">
+                        <button class="add-btn">Add to Cart</button>
+                        <button class="compare-btn">Download🔽</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            // Navbar hover underline
+            $('.nav-menu li').hover(
+                function () { $(this).find('.underline').stop().animate({ width: '100%' }, 300); },
+                function () { $(this).find('.underline').stop().animate({ width: '0' }, 300); }
+            );
+
+            let currentSlides = []; // store current card slides
+            let currentSlideIndex = 0;
+
+            // OPEN MODAL
+            $(document).on('click', '.view-btn', function () {
+                const card = $(this).closest('.card');
+                const slidesData = JSON.parse(card.attr('data-slides'));
+
+                currentSlides = slidesData;
+                currentSlideIndex = 0;
+
+                // Clear old slides
+                const slidesContainer = $('.slides');
+                slidesContainer.empty();
+
+                // Add slides to modal
+                slidesData.forEach((slide, index) => {
+                    const img = $('<img>').attr('src', slide.img).attr('alt', 'Slide ' + (index + 1));
+                    if (index === 0) img.addClass('active'); // first slide active
+                    slidesContainer.append(img);
+                });
+
+                // Set first slide description
+                $('#modalDesc').text(slidesData[0].desc);
+                $('#modalTitle').text(card.find('.item-name').text());
+
+                // Show modal
+                $('#productModal').css({ display: 'flex', opacity: 0 }).animate({ opacity: 1 }, 200);
+            });
+
+            // CLOSE MODAL
+            $(document).on('click', '.modal-overlay, .close-btn', function () {
+                $('#productModal').animate({ opacity: 0 }, 200, function () { $(this).css('display', 'none'); });
+            });
+
+            // SLIDER BUTTONS
+            $(document).on('click', '.slide-btn', function () {
+                const direction = $(this).text() === '❮' ? -1 : 1;
+                changeSlide(direction);
+            });
+
+            function changeSlide(direction) {
+                const slidesContainer = $('.slides img');
+                slidesContainer.removeClass('active');
+
+                currentSlideIndex += direction;
+
+                if (currentSlideIndex < 0) currentSlideIndex = currentSlides.length - 1;
+                if (currentSlideIndex >= currentSlides.length) currentSlideIndex = 0;
+
+                slidesContainer.eq(currentSlideIndex).addClass('active');
+                $('#modalDesc').text(currentSlides[currentSlideIndex].desc);
+            }
+
+        });
+
+        // Show/hide compare button based on selections
+        let compareList = [];
+
+        function updateCompareButton() {
+            if (compareList.length >= 2) {
+                $('#compareBtn').fadeIn();
+            } else {
+                $('#compareBtn').fadeOut();
+            }
+        }
+
+        // Update the compare list on checkbox change
+        $(document).on('change', '.compare-checkbox', function () {
+            const card = $(this).closest('.card');
+            const productName = card.find('.item-name').text();
+
+            if (this.checked) {
+                if (!compareList.includes(productName)) compareList.push(productName);
+                card.addClass('active-for-compare');
+            } else {
+                compareList = compareList.filter(name => name !== productName);
+                card.removeClass('active-for-compare');
+            }
+
+            updateCompareButton();
+        });
+
+        // Open Compare Modal
+        $('#compareBtn').on('click', function () {
+            const container = $('#compareProductsContainer');
+            container.empty();
+
+            compareList.forEach(productName => {
+                const card = $('.card').filter(function () {
+                    return $(this).find('.item-name').text() === productName;
+                }).first();
+
+                const imgSrc = card.find('.img-area img').attr('src');
+                const desc = card.find('.item-desc').text();
+                const price = card.find('.price').text();
+                const rating = card.find('.rating').html(); // stars
+
+                const productHTML = `
+            <div class="compare-product-card">
+                <img src="${imgSrc}" alt="${productName}" style="width:100%; height:auto; border-radius:4px;">
+                <h4>${productName}</h4>
+                <p>${desc}</p>
+                <p><strong>${price}</strong></p>
+                <div class="rating">${rating}</div>
+            </div>
+        `;
+                container.append(productHTML);
+            });
+
+            $('#compareModal').fadeIn();
+        });
+
+        // Close Compare Modal
+        function closeCompareModal() {
+            $('#compareModal').fadeOut();
+        }
+
+
+        // ADD TO CART
+
+
+
+        let cartItems = JSON.parse(localStorage.getItem("cartData")) || [];
+
+        // UPDATE CART COUNT
+        function updateCartCount() {
+            $("#cartCount").text(cartItems.length);
+        }
+        updateCartCount();
+
+        // RENDER CART ITEMS WITHOUT IMAGES
+        function renderCart() {
+            const container = $("#cartItems");
+            container.empty();
+
+            if (cartItems.length === 0) {
+                $("#emptyCart").show();
+                return;
+            }
+
+            $("#emptyCart").hide();
+
+            cartItems.forEach((item, index) => {
+                container.append(`
+            <div class="cart-item" style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                <div class="cart-info">
+                    <h4>${item.name}</h4>
+                    <p>${item.price}</p>
+                </div>
+                <button class="remove-btn" onclick="removeItem(${index})">✖</button>
+            </div>
+        `);
+            });
+        }
+
+
+        // REMOVE ITEM
+        function removeItem(index) {
+            cartItems.splice(index, 1);
+            localStorage.setItem("cartData", JSON.stringify(cartItems));
+            updateCartCount();
+            renderCart();
+        }
+
+        // ADD TO CART BUTTON
+        $(document).on("click", ".add-btn", function () {
+            const productName = $("#modalTitle").text();
+            const productDesc = $("#modalDesc").text();
+            const productImg = $(".slides img.active").attr("src");
+
+            const productPrice = $(".card")
+                .filter(function () {
+                    return $(this).find(".item-name").text() === productName;
+                })
+                .find(".price").text();
+
+            if (!productName) {
+                alert("Product not found ❌");
+                return;
+            }
+
+            // Prevent duplicate items
+            if (cartItems.some(item => item.name === productName)) {
+                alert("Already added 🛒");
+                return;
+            }
+
+            cartItems.push({
+                name: productName,
+                desc: productDesc,
+                img: productImg,
+                price: productPrice
+            });
+
+            localStorage.setItem("cartData", JSON.stringify(cartItems));
+            updateCartCount();
+            alert("Item added to cart ✅");
+        });
+
+        // OPEN CART
+        function openCart() {
+            renderCart();
+            $("#cartModal").fadeIn();
+        }
+
+        // CLOSE CART
+        function closeCart() {
+            $("#cartModal").fadeOut();
+        }
+
+        // DOWNLOAD BUTTON CLICK
+        $(document).on('click', '.compare-btn', function () {
+
+            // Modal se data uthao
+            const productName = $('#modalTitle').text();
+            const productDesc = $('#modalDesc').text();
+
+            const productPrice = $('.card')
+                .filter(function () {
+                    return $(this).find('.item-name').text() === productName;
+                })
+                .find('.price')
+                .text();
+
+            if (!productName) {
+                alert("No product found ❌");
+                return;
+            }
+
+            // File ka content
+            let fileContent =
+                `Product Name: ${productName}
+
+Price: ${productPrice}
+
+Description:
+${productDesc}
+`;
+
+            // TEXT FILE BANAO
+            const blob = new Blob([fileContent], { type: 'text/plain' });
+
+            // DOWNLOAD LINK
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = productName.replace(/\s+/g, '_') + '.txt';
+
+            // AUTO DOWNLOAD
+            link.click();
+
+            // Memory clear
+            URL.revokeObjectURL(link.href);
+        });
+
+        // Navbar Toggle
+
+        function openMenu() {
+            document.querySelector(".nav-menu").style.display = "flex";
+        }
+
+        function closeMenu() {
+            document.querySelector(".nav-menu").style.display = "none";
+        }
+
+
+    </script>
+</body>
+
+</html>
