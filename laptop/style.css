@@ -608,7 +608,7 @@
     }
 
     /* COMPARE BUTTON */
-    .compare-btn {
+    .download-btn {
       padding: 12px 28px;
       border-radius: 30px;
       background: transparent;
@@ -618,7 +618,7 @@
       transition: 0.3s;
     }
 
-    .compare-btn:hover {
+    .download-btn:hover {
       background: #5de0d8;
       color: #000;
       box-shadow: 0 0 18px rgba(93, 224, 216, 0.7);
