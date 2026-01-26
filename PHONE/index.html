@@ -629,7 +629,7 @@
 
                     <div class="modal-actions">
                         <button class="add-btn">Add to Cart</button>
-                        <button class="compare-btn">Download🔽</button>
+                        <button class="download-btn">Download🔽</button>
                     </div>
                 </div>
             </div>
@@ -638,6 +638,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
     <script>
 
         $(document).ready(function () {
@@ -862,9 +863,8 @@
 
 
         // DOWNLOAD BUTTON CLICK
-        $(document).on('click', '.compare-btn', function () {
+        $(document).on('click', '.download-btn', async function () {
 
-            // Modal se data uthao
             const productName = $('#modalTitle').text();
             const productDesc = $('#modalDesc').text();
 
@@ -880,30 +880,32 @@
                 return;
             }
 
-            // File ka content
-            let fileContent =
-                `Product Name: ${productName}
+            // Create Word document
+            const doc = new window.docx.Document({
+                sections: [{
+                    children: [
+                        new window.docx.Paragraph({ text: "Product Name: " + productName, bold: true }),
+                        new window.docx.Paragraph(""),
+                        new window.docx.Paragraph("Price: " + productPrice),
+                        new window.docx.Paragraph(""),
+                        new window.docx.Paragraph({ text: "Description:", bold: true }),
+                        new window.docx.Paragraph(productDesc),
+                    ]
+                }]
+            });
 
-Price: ${productPrice}
+            // Convert to blob
+            const blob = await window.docx.Packer.toBlob(doc);
 
-Description:
-${productDesc}
-`;
-
-            // TEXT FILE BANAO
-            const blob = new Blob([fileContent], { type: 'text/plain' });
-
-            // DOWNLOAD LINK
-            const link = document.createElement('a');
+            // Download
+            const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
-            link.download = productName.replace(/\s+/g, '_') + '.txt';
-
-            // AUTO DOWNLOAD
+            link.download = productName.replace(/\s+/g, '_') + ".docx";
             link.click();
 
-            // Memory clear
             URL.revokeObjectURL(link.href);
         });
+
 
 
         // Navbar Toggle

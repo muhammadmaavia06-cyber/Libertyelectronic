@@ -652,7 +652,7 @@
     }
 
     /* COMPARE BUTTON */
-    .compare-btn {
+    .download-btn {
       padding: 12px 28px;
       border-radius: 30px;
       background: transparent;
@@ -663,7 +663,7 @@
       font-weight: 700;
     }
 
-    .compare-btn:hover {
+    .download-btn:hover {
       background: #5de0d8;
       font-weight: 700;
       color: #000;

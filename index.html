@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liberty Electronic</title>
+    <link rel="shortcut icon" href="./Whisk_5916ef35e868013a40d4462a6fa876d8dr.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap"
@@ -757,7 +758,7 @@
             --accent: #FF4D6D;
         }
 
-        /* ================= RESPONSIVE ================= */
+
 
         /* ---------- BIG TV / 4K ---------- */
         @media (min-width: 1600px) {
@@ -841,7 +842,7 @@
             }
         }
 
-        /* ---------- MOBILE ---------- */
+        /* ---------- MOBILE ----------*/
         @media (max-width: 576px) {
             .navbar {
                 padding: 15px;
@@ -851,27 +852,13 @@
                 height: 65px;
             }
 
-            .card-container_1 {
-                flex-wrap: wrap;
-            }
-
-            .card_1 {
-                width: 16rem;
-            }
-
-            .card_1 img {
-                height: 280px;
-                padding: 45px 20px;
-            }
-
-
             .menu {
                 justify-content: center;
                 gap: 16px;
                 font-size: 14px;
             }
 
-            .nav-underline {
+            .nav-underline_1 {
                 display: none;
             }
 
@@ -890,6 +877,15 @@
 
             .grid {
                 grid-template-columns: 1fr;
+            }
+
+            .reviews-section {
+                font-size: 30px;
+                margin: 10px;
+        
+            }
+            .subtitle {
+                display: none;
             }
 
             .brand {
@@ -921,6 +917,108 @@
                 flex-direction: column;
                 gap: 15px;
                 text-align: center;
+            }
+
+            /* REVIEWS */
+            .main-box {
+                display: flex;
+                gap: 40px;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-items: center;
+                align-items: center;
+            }
+
+            /* products */
+
+            .card-container_1 {
+                flex-wrap: wrap;
+            }
+
+        }
+
+
+
+
+
+        /* ================= EXTRA RESPONSIVE FIXES (SMALL DEVICES) ================= */
+
+        @media (max-width: 420px) {
+            .hero {
+                height: 90vh;
+            }
+
+            .hero-text h1 {
+                font-size: 26px;
+                line-height: 1.2;
+            }
+
+            .hero-text button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .card-container_1 {
+                flex-wrap: wrap;
+            }
+
+            .card_1 {
+                width: 16rem;
+            }
+
+            .card_1 img {
+                height: 280px;
+                padding: 45px 20px;
+            }
+
+            .ring-box {
+                width: 130px;
+                height: 130px;
+            }
+
+            svg {
+                width: 130px;
+                height: 130px;
+            }
+
+            .show-number {
+                font-size: 22px;
+            }
+
+            .stat-desc {
+                max-width: 160px;
+            }
+
+            .heading {
+                font-size: 50px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .services-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-card {
+                width: 90%;
+            }
+        }
+
+        /* Fix mega menu on mobile (tap) */
+        @media (max-width: 768px) {
+            .mega {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+            }
+
+            .mega.active {
+                display: block;
             }
         }
     </style>
@@ -1140,38 +1238,38 @@
 
     <!-- Contact Us -->
 
-   <section id="contact" class="contact">
-    <div class="contact-container">
+    <section id="contact" class="contact">
+        <div class="contact-container">
 
-        <div class="contact-text">
-            <h2>Contact <span>Us</span></h2>
-            <p>
-                Have questions about our products or services?
-                Reach out to Liberty Electronic — we’re here to help.
-            </p>
+            <div class="contact-text">
+                <h2>Contact <span>Us</span></h2>
+                <p>
+                    Have questions about our products or services?
+                    Reach out to Liberty Electronic — we’re here to help.
+                </p>
 
-            <!-- Company Address -->
-            <p>
-                <strong>Address:</strong> 123 Liberty Street, Tech City, Country
-            </p>
+                <!-- Company Address -->
+                <p>
+                    <strong>Address:</strong> 123 Liberty Street, Tech City, Country
+                </p>
 
-            <!-- Clickable Email -->
-            <p>
-                <strong>Email:</strong> 
-                <a href="mailto:info@libertyelectronic.com">info@libertyelectronic.com</a>
-            </p>
+                <!-- Clickable Email -->
+                <p>
+                    <strong>Email:</strong>
+                    <a href="mailto:info@libertyelectronic.com">info@libertyelectronic.com</a>
+                </p>
+            </div>
+
+            <form class="contact-form" id="contactus">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
         </div>
-
-        <form class="contact-form" id="contactus">
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <input type="tel" placeholder="Phone Number" required>
-            <textarea placeholder="Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-
-    </div>
-</section>
+    </section>
 
 
     <!-- Footer -->
@@ -1490,6 +1588,13 @@
             runCircle("#ring3", "#show3", 100);
             runCircle("#ring4", "#show4", 96);
         });
+
+
+
+
+
+
+
 
     </script>
 

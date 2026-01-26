@@ -144,7 +144,7 @@
         </div>
 
         <!-- CARD 3 -->
-       <div class="card" data-slides='[
+        <div class="card" data-slides='[
   {
     "img":"assets/panasonic-3-2.png",
     "desc":"PANASONIC 55 – More color, more clarity for an immersive viewing experience with vibrant visuals."
@@ -257,7 +257,7 @@
         </div>
 
         <!-- CARD 6 -->
-<div class="card" data-slides='[
+        <div class="card" data-slides='[
   {
     "img":"assets/samsung-2-2.png",
     "desc":"Samsung 43 – Big, bright, smart display perfect for streaming, movies, and daily entertainment."
@@ -333,7 +333,7 @@
         </div>
 
         <!-- CARD 8 -->
-       <div class="card" data-slides='[
+        <div class="card" data-slides='[
   {
     "img":"assets/samsung-4-2.png",
     "desc":"Samsung 55 AU7000 – Stunning Ultra HD display for crisp, vibrant visuals in every scene."
@@ -446,7 +446,7 @@
         </div>
 
         <!-- CARD 11 -->
-       <div class="card" data-slides='[
+        <div class="card" data-slides='[
   {
     "img":"assets/vizio-3-1.png",
     "desc":"VIZIO 50 – Quantum 4K brilliance delivers stunning visuals for movies, shows, and gaming."
@@ -483,7 +483,7 @@
         </div>
 
         <!-- CARD 12 -->
-       <div class="card" data-slides='[
+        <div class="card" data-slides='[
   {
     "img":"assets/vizio-4-2.png",
     "desc":"VIZIO 24 D Series – Bigger picture, better value for everyday TV watching and streaming."
@@ -520,7 +520,7 @@
         </div>
 
         <!-- CARD 13 -->
-       <div class="card" data-slides='[
+        <div class="card" data-slides='[
   {
     "img":"assets/sharp-2.png",
     "desc":"Sharp 50 – Clear picture, smart entertainment for movies, shows, and streaming."
@@ -712,7 +712,7 @@
 
                     <div class="modal-actions">
                         <button class="add-btn">Add to Cart</button>
-                        <button class="compare-btn">Download🔽</button>
+                        <button class="download-btn">Download🔽</button>
                     </div>
                 </div>
             </div>
@@ -721,6 +721,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
     <script>
 
         $(document).ready(function () {
@@ -942,9 +943,8 @@
 
 
         // DOWNLOAD BUTTON CLICK
-        $(document).on('click', '.compare-btn', function () {
+        $(document).on('click', '.download-btn', async function () {
 
-            // Modal se data uthao
             const productName = $('#modalTitle').text();
             const productDesc = $('#modalDesc').text();
 
@@ -960,28 +960,29 @@
                 return;
             }
 
-            // File ka content
-            let fileContent =
-                `Product Name: ${productName}
+            // Create Word document
+            const doc = new window.docx.Document({
+                sections: [{
+                    children: [
+                        new window.docx.Paragraph({ text: "Product Name: " + productName, bold: true }),
+                        new window.docx.Paragraph(""),
+                        new window.docx.Paragraph("Price: " + productPrice),
+                        new window.docx.Paragraph(""),
+                        new window.docx.Paragraph({ text: "Description:", bold: true }),
+                        new window.docx.Paragraph(productDesc),
+                    ]
+                }]
+            });
 
-Price: ${productPrice}
+            // Convert to blob
+            const blob = await window.docx.Packer.toBlob(doc);
 
-Description:
-${productDesc}
-`;
-
-            // TEXT FILE BANAO
-            const blob = new Blob([fileContent], { type: 'text/plain' });
-
-            // DOWNLOAD LINK
-            const link = document.createElement('a');
+            // Download
+            const link = document.createElement("a");
             link.href = URL.createObjectURL(blob);
-            link.download = productName.replace(/\s+/g, '_') + '.txt';
-
-            // AUTO DOWNLOAD
+            link.download = productName.replace(/\s+/g, '_') + ".docx";
             link.click();
 
-            // Memory clear
             URL.revokeObjectURL(link.href);
         });
 
