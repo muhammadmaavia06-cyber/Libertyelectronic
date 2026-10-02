@@ -335,11 +335,11 @@
 
         }
 
-        svg {
-            width: 160px;
-            height: 160px;
-            transform: rotate(-90deg);
-        }
+       .ring-box svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
 
         .back-ring {
             fill: none;
@@ -976,10 +976,10 @@
                 height: 130px;
             }
 
-            svg {
-                width: 130px;
-                height: 130px;
-            }
+           .ring-box svg {
+    width: 130px;
+    height: 130px;
+}
 
             .show-number {
                 font-size: 22px;
@@ -1176,7 +1176,7 @@
 
     <div class="main-box">
 
-        <svg width="0" height="0">
+       <svg width="0" height="0" style="position:absolute" aria-hidden="true">
             <defs>
                 <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stop-color="#4fd1ff" />
@@ -1583,11 +1583,12 @@
         }
 
         $(document).ready(function () {
-            runCircle("#ring1", "#show1", 93);
-            runCircle("#ring2", "#show2", 87);
-            runCircle("#ring3", "#show3", 100);
-            runCircle("#ring4", "#show4", 96);
-        });
+    $(".ring-box svg").attr("viewBox", "0 0 160 160");
+    runCircle("#ring1", "#show1", 93);
+    runCircle("#ring2", "#show2", 87);
+    runCircle("#ring3", "#show3", 100);
+    runCircle("#ring4", "#show4", 96);
+});
 
 
 
